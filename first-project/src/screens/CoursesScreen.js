@@ -3,11 +3,11 @@ import React from "react";
 
 export default function CoursesScreen() {
   const courses = [
-    { name: "JavaScript", id: 1 },
-    { name: "React", id: 2 },
-    { name: "React Native", id: 3 },
-    { name: "Bootstrap", id: 4 },
-    { name: "Angular", id: 5 },
+    { name: "Angular", id: 1 },
+    { name: "Bootstrap", id: 2 },
+    { name: "C", id: 3 },
+    { name: "React Native", id: 4 },
+    { name: "JavaScript", id: 5 },
   ];
   return (
     <View>
