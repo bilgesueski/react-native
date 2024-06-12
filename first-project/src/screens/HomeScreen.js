@@ -17,6 +17,10 @@ export default function HomeScreen({ navigation }) {
         title="Counter Page"
         onPress={() => navigation.navigate("Counter")}
       />
+      <Button
+        title="Colorful Box Page"
+        onPress={() => navigation.navigate("Colorful Box")}
+      />
     </View>
   );
 }
