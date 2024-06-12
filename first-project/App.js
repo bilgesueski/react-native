@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import CoursesScreen from './src/screens/CoursesScreen';
 import CoursesInformationScreen from './src/screens/CoursesInformationScreen';
+import CounterScreen from './src/screens/CounterScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="My Courses" component={CoursesScreen} />
         <Stack.Screen name="My Course Informations" component={CoursesInformationScreen} />
+        <Stack.Screen name="Counter" component={CounterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
