@@ -4,7 +4,7 @@ import React from "react";
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      <Text style={styles.text}>Home Screen</Text>
       <Button
         title="My Courses"
         onPress={() => navigation.navigate("My Courses")}
@@ -30,5 +30,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  text: {
+    marginBottom: 50,
   },
 });
