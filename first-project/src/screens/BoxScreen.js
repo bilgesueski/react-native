@@ -13,7 +13,7 @@ export default function BoxScreen() {
   return (
     <View>
       <Button
-        title="Add Box"
+        title="Add Box (CLICK ME!!!)"
         onPress={() => {
           setColors([...colors, randomColor()]);
         }}
