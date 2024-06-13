@@ -18,8 +18,16 @@ export default function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate("Counter")}
       />
       <Button
+        title="Counter Page created with useReducer"
+        onPress={() => navigation.navigate("Counter2")}
+      />
+      <Button
         title="Colorful Box Page"
         onPress={() => navigation.navigate("Colorful Box")}
+      />
+      <Button
+        title="Colorful Box Page created with useReducer"
+        onPress={() => navigation.navigate("Colorful Box2")}
       />
     </View>
   );
