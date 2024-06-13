@@ -29,6 +29,10 @@ export default function HomeScreen({ navigation }) {
         title="Colorful Box Page created with useReducer"
         onPress={() => navigation.navigate("Colorful Box2")}
       />
+      <Button
+        title="Password Screen"
+        onPress={() => navigation.navigate("Password Screen")}
+      />
     </View>
   );
 }
