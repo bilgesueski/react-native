@@ -11,7 +11,12 @@ export default function SearchBar() {
         size={30}
         color="black"
       />
-      <TextInput style={styles.inputStyle} placeholder="Search" />
+      <TextInput
+        style={styles.inputStyle}
+        autoCapitalize="none"
+        autoCorrect={false}
+        placeholder="Search"
+      />
     </View>
   );
 }
