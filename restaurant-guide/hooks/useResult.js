@@ -6,7 +6,7 @@ export default () => {
   const searchApi = async (searchTerm) => {
     const response = await yelp.get("/search", {
       params: {
-        location: "Mersin",
+        location: "İstanbul",
         limit: 50,
         term: searchTerm,
       },

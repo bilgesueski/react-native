@@ -7,18 +7,25 @@ import {
 } from "react-native";
 import React from "react";
 import ResultDetail from "./ResultDetail";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ResultList({ title, results }) {
-
+  const navigation = useNavigation();
   return (
-    <View>
-      <Text>{title}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}</Text>
       <FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
         data={results}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity>
-              <ResultDetail result={item} /> 
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("ResultsShow", { id: item.id })
+              }
+            >
+              <ResultDetail result={item} />
             </TouchableOpacity>
           );
         }}
@@ -27,4 +34,14 @@ export default function ResultList({ title, results }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginLeft: 15,
+    marginBottom: 5,
+  },
+});
