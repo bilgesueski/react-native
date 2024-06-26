@@ -15,7 +15,7 @@ export default () => {
   };
 
   useEffect(() => {
-    searchApi("Toast");
+    searchApi("Hamburger");
   }, []);
 
   return [searchApi, results];
