@@ -1,15 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 
 const BlogContext = React.createContext();
 
+// method for useReducer
+const blogReducer = (state, action) => {
+  switch (action.type) {
+    case "add_blogpost":
+      return [...state, { title: "Vue.js" }];
+    default:
+      return state;
+  }
+};
+
 export const BlogProvider = ({ children }) => {
-  const [blogPosts, setBlogPosts] = useState([
+  // with useReducer
+  const [blogPosts, dispatch] = useReducer(blogReducer, [
     { title: "React Native" },
-    { title: "JavaScript" },
+    { title: "Javascript" },
   ]);
 
+  /* with useState
+   const [blogPosts, setBlogPosts] = useState([
+     { title: "React Native" },
+     { title: "JavaScript" },
+   ]);
+  */
+
   const addBlogPost = () => {
-    setBlogPosts([...blogPosts, { title: "Vue JS" }]);
+    dispatch({ type: "add_blogpost" });
+
+    // setBlogPosts([...blogPosts, { title: "Vue JS" }]);
   };
 
   return (
