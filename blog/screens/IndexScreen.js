@@ -10,7 +10,7 @@ export default function IndexScreen() {
       <Button title="Add" onPress={addBlogPost} />
       <FlatList
         data={state}
-        keyExtractor={(blogPost) => blogPost.title}
+        keyExtractor={(blogPost) => blogPost.id}
         renderItem={({ item }) => {
           return (
             <View style={styles.row}>
