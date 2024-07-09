@@ -1,3 +1,5 @@
+/* This code is first version of Context hook.
+
 import React, { useState, useReducer } from "react";
 
 const BlogContext = React.createContext();
@@ -24,7 +26,7 @@ export const BlogProvider = ({ children }) => {
      { title: "React Native" },
      { title: "JavaScript" },
    ]);
-  */
+  
 
   const addBlogPost = () => {
     dispatch({ type: "add_blogpost" });
@@ -40,3 +42,30 @@ export const BlogProvider = ({ children }) => {
 };
 
 export default BlogContext;
+
+*/
+
+// Same functionality with less code -> createDataContext.js
+
+import createDataContext from "./createDataContext";
+
+const blogReducer = (state, action) => {
+  switch (action.type) {
+    case "add_blogpost":
+      return [...state, { title: "React Js" }];
+    default:
+      return state;
+  }
+};
+
+const addBlogPost = (dispatch) => {
+  return () => {
+    dispatch({ type: "add_blogpost" });
+  };
+};
+
+export const { Context, Provider } = createDataContext(
+  blogReducer,
+  { addBlogPost },
+  []
+);
