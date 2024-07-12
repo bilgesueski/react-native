@@ -10,6 +10,7 @@ export default function EditScreen({ route }) {
   const blogPost = state.find((blogPost) => blogPost.id === route.params.id);
   return (
     <BlogPostForm
+      isEditable={true}
       initialValues={{ title: blogPost.title, content: blogPost.content }}
     />
   );
