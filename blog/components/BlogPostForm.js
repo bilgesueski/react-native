@@ -7,14 +7,14 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-export default function BlogPostForm() {
+export default function BlogPostForm({ onSubmit }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   return (
     <View style={styles.main}>
-      <Text style={styles.title}>Enter the title:</Text>
+      <Text style={styles.label}>Enter the title:</Text>
       <TextInput
-        style={styles.TextInput}
+        style={styles.input}
         value={title}
         onChangeText={(text) => setTitle(text)}
       />
@@ -24,7 +24,10 @@ export default function BlogPostForm() {
         value={content}
         onChangeText={(text) => setContent(text)}
       />
-      <TouchableOpacity style={styles.buttonMain}>
+      <TouchableOpacity
+        style={styles.buttonMain}
+        onPress={() => onSubmit(title, content)}
+      >
         <View style={styles.buttonView}>
           <Text style={styles.buttonText}>Save</Text>
         </View>
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   label: {
-    fontSize: 20,
+    fontSize: 18,
     marginLeft: 10,
   },
   input: {
@@ -46,21 +49,21 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 20,
     padding: 5,
-    fontSize: 18,
+    fontSize: 16,
     marginBottom: 15,
   },
   buttonMain: {
     padding: 30,
   },
   buttonView: {
-    backgroundColor: "green",
+    backgroundColor: "#BDD3C7",
     padding: 10,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 20,
   },
   buttonText: {
-    color: "white",
-    fontSize: 20,
+    color: "#081D56",
+    fontSize: 18,
   },
 });
