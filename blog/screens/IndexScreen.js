@@ -16,6 +16,14 @@ export default function IndexScreen({ navigation }) {
 
   useEffect(() => {
     getBlogPosts();
+
+    // Navigasyon dinleyicisi oluşturur. Sayfa odaklandığında (focus) getBlogPosts fonksiyonunu tekrar çağırır.
+    const listener = navigation.addListener("focus", () => {
+      getBlogPosts();
+    });
+    return () => {
+      listener.remove(); // Eklenen dinleyiciyi kaldırır.
+    };
   }, []);
 
   return (
