@@ -8,20 +8,44 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { auth } from "../firebase";
+import { useNavigation } from "@react-navigation/native";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // SignUp Function
   const handleSignUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log("User", user.email);
+        console.log("User: ", user.email);
       })
       .catch((error) => alert(error.message));
   };
+
+  // If there are at least one user, navigate to Home Page
+  const navigation = useNavigation();
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigation.navigate("Home");
+      }
+    });
+  }, []);
+
+  // LogIn Function
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Use has loged in", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.inputContainer}>
